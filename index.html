@@ -1,13 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#183d30">
-  <meta name="description" content="AL-HUDA: RUANG TUMBUH — ruang digital untuk mengenal SMP Islam Terpadu Al Huda Wonogiri, program pendidikan, kegiatan, dan prestasi siswa.">
-  <title>AL-HUDA: Ruang Tumbuh | SMPIT Al Huda Wonogiri</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#183d30" name="theme-color"/>
+<meta content="AL-HUDA: RUANG TUMBUH — ruang digital untuk mengenal SMP Islam Terpadu Al Huda Wonogiri, program pendidikan, kegiatan, dan prestasi siswa." name="description"/>
+<title>AL-HUDA: Ruang Tumbuh | SMPIT Al Huda Wonogiri</title>
+<style>
     :root {
       --green: #183d30;
       --green-light: #315a48;
@@ -151,7 +151,7 @@
 
     .brand-mark {
       display: block;
-      width: 145px;
+      width: 44px;
       height: auto;
       max-height: 54px;
       flex-shrink: 0;
@@ -325,22 +325,27 @@
     .back-home-button {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 10px 15px;
       border: 1px solid var(--gold);
       border-radius: 5px;
-      background: transparent;
-      color: var(--green);
+      background: var(--green-light);
+      color: #ffffff;
       font: inherit;
       font-size: 0.88rem;
       font-weight: 700;
+      line-height: 1.4;
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
     }
 
-    .back-home-button:hover {
-      background: var(--green);
-      color: var(--white);
+    .back-home-button:hover,
+    .back-home-button:focus-visible {
+      background: var(--gold);
+      color: var(--green);
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
     }
 
     .placeholder-inner h2 {
@@ -674,20 +679,21 @@
     }
 
 
-    /* SISTEM SLIDE: satu bagian tampil pada satu waktu */
+    /* Tampilkan satu bagian saja; bagian lain baru terbuka setelah tombol dipilih. */
     main > section {
       display: none;
-      min-height: calc(100vh - 78px);
     }
 
     main > section.is-active {
       display: block;
     }
 
+    .footer {
+      display: none;
+    }
+
     .footer.is-active {
       display: block;
-      min-height: calc(100vh - 78px);
-      padding-top: 80px;
     }
 
     .sources-content {
@@ -717,12 +723,8 @@
 
     @media (max-width: 760px) {
       .brand-mark {
-        width: 112px;
+        width: 38px;
         max-height: 45px;
-      }
-      main > section,
-      .footer.is-active {
-        min-height: calc(100vh - 70px);
       }
     }
     /* FOTO DOKUMENTASI RESMI */
@@ -802,6 +804,18 @@
       object-fit: cover;
     }
 
+    .gallery-photo-link-wrap {
+      display: flex;
+      min-height: 220px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .gallery-photo-link {
+      text-align: center;
+    }
+
     .gallery-caption {
       padding: 18px 20px 20px;
     }
@@ -820,6 +834,9 @@
       }
       .gallery-item img {
         height: 210px;
+      }
+      .gallery-photo-link-wrap {
+        min-height: 210px;
       }
     }
 
@@ -950,84 +967,62 @@
     }
   </style>
 </head>
-
 <body>
-  <header class="header">
-    <nav class="navbar container" aria-label="Navigasi utama">
-      <a class="brand" href="#beranda" aria-label="AL-HUDA Ruang Tumbuh">
-        <img class="brand-mark" src="data:image/png;base64,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" alt="Logo resmi SMPIT Al-Huda Wonogiri">
-        <div class="brand-text">
-          <strong>AL-HUDA</strong>
-          <span>RUANG TUMBUH</span>
-        </div>
-      </a>
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        type="button"
-        aria-label="Buka menu navigasi"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
+<header class="header">
+<nav aria-label="Navigasi utama" class="navbar container">
+<a aria-label="AL-HUDA Ruang Tumbuh" class="brand" href="#beranda">
+<img alt="Logo resmi SMPIT Al-Huda Wonogiri" class="brand-mark" src="data:image/png;base64,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"/>
+<div class="brand-text">
+<strong>AL-HUDA</strong>
+<span>RUANG TUMBUH</span>
+</div>
+</a>
+<button aria-controls="navLinks" aria-expanded="false" aria-label="Buka menu navigasi" class="menu-toggle" id="menuToggle" type="button">
         ☰
       </button>
-
-      <div class="nav-links" id="navLinks">
-        <a href="#beranda">Beranda</a>
-        <a href="#profil">Profil</a>
-        <a href="#visi-misi">Visi &amp; Misi</a>
-        <a href="#program">Program</a>
-        <a href="#kehidupan">Kehidupan Siswa</a>
-        <a href="#prestasi">Prestasi</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#sumber">Sumber</a>
-        <a class="nav-cta" href="#kontak">Jelajahi Sekolah ↗</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <!-- BERANDA -->
-    <section class="hero" id="beranda">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">SMP Islam Terpadu Al Huda Wonogiri</p>
-
-          <h1>Tempat untuk<br><span>terus tumbuh.</span></h1>
-
-          <p class="hero-description">
+<div class="nav-links" id="navLinks">
+<a href="#beranda">Beranda</a>
+<a href="#profil">Profil</a>
+<a href="#visi-misi">Visi &amp; Misi</a>
+<a href="#program">Program</a>
+<a href="#kehidupan">Kehidupan Siswa</a>
+<a href="#prestasi">Prestasi</a>
+<a href="#galeri">Galeri</a>
+<a href="#sumber">Sumber</a>
+<a class="nav-cta" href="#kontak">Jelajahi Sekolah ↗</a>
+</div>
+</nav>
+</header>
+<main>
+<!-- BERANDA -->
+<section class="hero" id="beranda">
+<div class="container hero-grid">
+<div class="reveal">
+<p class="eyebrow">SMP Islam Terpadu Al Huda Wonogiri</p>
+<h1>Tempat untuk<br/><span>terus tumbuh.</span></h1>
+<p class="hero-description">
             Mengenal ruang belajar, pembinaan karakter, program pendidikan,
             dan perjalanan siswa SMPIT Al Huda Wonogiri.
           </p>
-
-          <div class="hero-actions">
-            <a class="button" href="#profil">Kenali Sekolah ↗</a>
-            <a class="button button-outline" href="#program">Lihat Program</a>
-          </div>
-          <div class="home-shortcuts" aria-label="Jelajahi halaman website">
-            <a class="button button-outline" href="#visi-misi">Visi &amp; Misi</a>
-            <a class="button button-outline" href="#kehidupan">Kehidupan Siswa</a>
-            <a class="button button-outline" href="#prestasi">Prestasi</a>
-            <a class="button button-outline" href="#galeri">Foto Sekolah</a>
-            <a class="button button-outline" href="#kontak">Kontak</a>
-          </div>
-
-          <p class="hero-note">
+<div class="hero-actions">
+<a class="button button-outline" href="#profil">Kenali Sekolah</a>
+<a class="button button-outline" href="#program">Lihat Program</a>
+</div>
+<div aria-label="Jelajahi halaman website" class="home-shortcuts">
+<a class="button button-outline" href="#visi-misi">Visi &amp; Misi</a>
+<a class="button button-outline" href="#kehidupan">Kehidupan Siswa</a>
+<a class="button button-outline" href="#prestasi">Prestasi</a>
+<a class="button button-outline" href="#galeri">Foto Sekolah</a>
+<a class="button button-outline" href="#kontak">Kontak</a>
+</div>
+<p class="hero-note">
             Berkarakter Islami. Bertumbuh. Berprestasi.
           </p>
-        </div>
-
-        <!--
-          FOTO SEKOLAH BELUM DIPASANG.
-          Ganti area ini dengan foto asli sekolah dari sumber resmi
-          setelah file dan keasliannya diverifikasi.
-          Jangan menggunakan gambar ilustrasi sebagai foto sekolah asli.
-        -->
-        <div class="hero-visual" aria-label="Tautan dokumentasi resmi sekolah">
+</div>
+<div class="hero-visual" aria-label="Tautan dokumentasi resmi sekolah">
           <div class="photo-placeholder">
             <div class="placeholder-inner">
-              <img class="placeholder-logo" src="data:image/png;base64,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" alt="Logo resmi SMPIT Al-Huda Wonogiri">
+              <img class="placeholder-logo" src="data:image/png;base64,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" alt="Logo resmi SMPIT Al-Huda Wonogiri">
               <h2>Ruang Tumbuh</h2>
               <p>
                 Foto ditampilkan di situs resmi sekolah. Buka tautan di bawah untuk melihat dokumentasi asli.
@@ -1039,447 +1034,393 @@
             SMP Islam Terpadu Al Huda Wonogiri
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PROFIL -->
-    <section class="section intro" id="profil">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container intro-grid">
-        <div>
-          <p class="eyebrow">Tentang Sekolah</p>
-          <h2>Pendidikan untuk ilmu, karakter, dan masa depan.</h2>
-        </div>
-
-        <div class="intro-copy">
-          <p>
+</div>
+</section>
+<!-- PROFIL -->
+<section class="section intro" id="profil">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container intro-grid">
+<div>
+<p class="eyebrow">Tentang Sekolah</p>
+<h2>Pendidikan untuk ilmu, karakter, dan masa depan.</h2>
+</div>
+<div class="intro-copy">
+<p>
             SMPIT Al Huda Wonogiri merupakan sekolah Islam terpadu yang
             mengembangkan pendidikan akademik dan pembinaan karakter Islami.
             Sekolah juga memperkenalkan program pendidikan, kegiatan siswa,
             serta pengembangan potensi melalui berbagai kegiatan.
           </p>
-
-          <p>
+<p>
             Informasi pada halaman ini disusun berdasarkan publikasi sekolah.
             Untuk data yang dapat berubah, seperti fasilitas terkini dan
             prestasi terbaru, rujuk publikasi resmi sekolah.
           </p>
-
-          <a
-            class="text-link"
-            href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+<a class="text-link" href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/" rel="noopener noreferrer" target="_blank">
             Baca profil di situs sekolah ↗
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISI DAN MISI -->
-    <section class="section" id="visi-misi">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Arah Pendidikan</p>
-          <h2>Visi dan Misi Sekolah</h2>
-          <p>Dirangkum dari halaman profil resmi SMPIT Al Huda Wonogiri. Silakan periksa sumber di bagian akhir untuk teks lengkap dan pembaruan resmi.</p>
-        </div>
-        <div class="vision-mission-grid">
-          <article class="vision-mission-card">
-            <h3>Visi</h3>
-            <p>Mewujudkan generasi Islami, berprestasi, mampu berkolaborasi, dan berjiwa pemimpin.</p>
-          </article>
-          <article class="vision-mission-card">
-            <h3>Misi</h3>
-            <ul>
-              <li>Membiasakan karakter dan adab Islami.</li>
-              <li>Mencetak generasi penghafal Al-Qur’an.</li>
-              <li>Melaksanakan pembelajaran yang ilmiah dan integratif.</li>
-              <li>Mengembangkan ilmu pengetahuan dan teknologi serta kemampuan berbahasa global.</li>
-              <li>Aktif berkompetisi dan unggul dalam prestasi.</li>
-              <li>Mencetak generasi yang bermanfaat bagi manusia dan lingkungan.</li>
-              <li>Membangun kepemimpinan dan kesalehan sosial.</li>
-            </ul>
-          </article>
-        </div>
-        <p class="gallery-note">Sumber: <a href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/" target="_blank" rel="noopener noreferrer">Profil resmi SMPIT Al Huda Wonogiri</a>. Informasi mengikuti publikasi yang tersedia dan dapat berubah.</p>
-      </div>
-    </section>
-
-    <!-- PROGRAM -->
-    <section class="section" id="program">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Program Pendidikan</p>
-          <h2>Belajar dengan arah dan tujuan.</h2>
-          <p>
+</div>
+</div>
+</section>
+<!-- VISI DAN MISI -->
+<section class="section" id="visi-misi">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Arah Pendidikan</p>
+<h2>Visi dan Misi Sekolah</h2>
+<p>Dirangkum dari halaman profil resmi SMPIT Al Huda Wonogiri. Silakan periksa sumber di bagian akhir untuk teks lengkap dan pembaruan resmi.</p>
+</div>
+<div class="vision-mission-grid">
+<article class="vision-mission-card">
+<h3>Visi</h3>
+<p>Mewujudkan generasi Islami, berprestasi, mampu berkolaborasi, dan berjiwa pemimpin.</p>
+</article>
+<article class="vision-mission-card">
+<h3>Misi</h3>
+<ul>
+<li>Membiasakan karakter dan adab Islami.</li>
+<li>Mencetak generasi penghafal Al-Qur’an.</li>
+<li>Melaksanakan pembelajaran yang ilmiah dan integratif.</li>
+<li>Mengembangkan ilmu pengetahuan dan teknologi serta kemampuan berbahasa global.</li>
+<li>Aktif berkompetisi dan unggul dalam prestasi.</li>
+<li>Mencetak generasi yang bermanfaat bagi manusia dan lingkungan.</li>
+<li>Membangun kepemimpinan dan kesalehan sosial.</li>
+</ul>
+</article>
+</div>
+<p class="gallery-note">Sumber: <a href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/" rel="noopener noreferrer" target="_blank">Profil resmi SMPIT Al Huda Wonogiri</a>. Informasi mengikuti publikasi yang tersedia dan dapat berubah.</p>
+</div>
+</section>
+<!-- PROGRAM -->
+<section class="section" id="program">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Program Pendidikan</p>
+<h2>Belajar dengan arah dan tujuan.</h2>
+<p>
             Beberapa program yang disebutkan dalam publikasi SMPIT Al Huda
             Wonogiri. Pelaksanaan dan informasi terbarunya perlu merujuk
             langsung ke sekolah.
           </p>
-        </div>
-
-        <div class="program-grid">
-          <article class="program-card">
-            <div class="card-number">01</div>
-            <h3>Kelas Digital</h3>
-            <p>
+</div>
+<div class="program-grid">
+<article class="program-card">
+<div class="card-number">01</div>
+<h3>Kelas Digital</h3>
+<p>
               Pemanfaatan teknologi dalam kegiatan pembelajaran, sebagaimana
               diperkenalkan melalui publikasi sekolah.
             </p>
-          </article>
-
-          <article class="program-card">
-            <div class="card-number">02</div>
-            <h3>Tahfidz dan Tahsin</h3>
-            <p>
+</article>
+<article class="program-card">
+<div class="card-number">02</div>
+<h3>Tahfidz dan Tahsin</h3>
+<p>
               Program pembelajaran Al-Qur’an yang menjadi bagian dari
               pembinaan keislaman siswa.
             </p>
-          </article>
-
-          <article class="program-card">
-            <div class="card-number">03</div>
-            <h3>Pendampingan Prestasi</h3>
-            <p>
+</article>
+<article class="program-card">
+<div class="card-number">03</div>
+<h3>Pendampingan Prestasi</h3>
+<p>
               Pendampingan potensi dan prestasi siswa dalam bidang akademik
               maupun nonakademik.
             </p>
-          </article>
-
-          <article class="program-card">
-            <div class="card-number">04</div>
-            <h3>English dan Arabic Club</h3>
-            <p>
+</article>
+<article class="program-card">
+<div class="card-number">04</div>
+<h3>English dan Arabic Club</h3>
+<p>
               Kegiatan pengembangan kemampuan bahasa Inggris dan bahasa Arab
               yang disebutkan dalam profil sekolah.
             </p>
-          </article>
-
-          <article class="program-card">
-            <div class="card-number">05</div>
-            <h3>Pembinaan Karakter Islami</h3>
-            <p>
+</article>
+<article class="program-card">
+<div class="card-number">05</div>
+<h3>Pembinaan Karakter Islami</h3>
+<p>
               Pembinaan karakter dan adab Islami melalui kegiatan pendidikan
               dan pembiasaan yang dijelaskan oleh sekolah.
             </p>
-          </article>
-
-          <article class="program-card">
-            <div class="card-number">06</div>
-            <h3>Ekstrakurikuler</h3>
-            <p>
+</article>
+<article class="program-card">
+<div class="card-number">06</div>
+<h3>Ekstrakurikuler</h3>
+<p>
               Pengembangan minat dan bakat siswa melalui kegiatan di luar
               pembelajaran utama.
             </p>
-          </article>
-        </div>
-
-        <p style="margin-top:24px">
-          <a
-            class="text-link"
-            href="https://smpitalhuda.sch.id/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+</article>
+</div>
+<p style="margin-top:24px">
+<a class="text-link" href="https://smpitalhuda.sch.id/" rel="noopener noreferrer" target="_blank">
             Periksa informasi program di situs resmi ↗
           </a>
-        </p>
-      </div>
-    </section>
-
-    <!-- KEHIDUPAN SISWA -->
-    <section class="section student-life" id="kehidupan">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Kehidupan Siswa</p>
-          <h2>Belajar tidak berhenti di ruang kelas.</h2>
-          <p>
+</p>
+</div>
+</section>
+<!-- KEHIDUPAN SISWA -->
+<section class="section student-life" id="kehidupan">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Kehidupan Siswa</p>
+<h2>Belajar tidak berhenti di ruang kelas.</h2>
+<p>
             Kegiatan sekolah menjadi bagian dari pengalaman belajar,
             pengembangan keterampilan, dan pembentukan karakter.
           </p>
-        </div>
-
-        <div class="life-grid">
-          <article class="life-card">
-            <h3>Kegiatan dan Kebersamaan</h3>
-            <p>
+</div>
+<div class="life-grid">
+<article class="life-card">
+<h3>Kegiatan dan Kebersamaan</h3>
+<p>
               Publikasi sekolah menampilkan kegiatan siswa, termasuk kegiatan
               kepanduan, upacara, dan outing class.
             </p>
-            <div class="tag-list">
-              <span class="tag">Pramuka</span>
-              <span class="tag">Outing Class</span>
-              <span class="tag">Kegiatan Siswa</span>
-            </div>
-          </article>
-
-          <article class="life-card">
-            <h3>Kreativitas dan Teknologi</h3>
-            <p>
+<div class="tag-list">
+<span class="tag">Pramuka</span>
+<span class="tag">Outing Class</span>
+<span class="tag">Kegiatan Siswa</span>
+</div>
+</article>
+<article class="life-card">
+<h3>Kreativitas dan Teknologi</h3>
+<p>
               Sekolah juga pernah memublikasikan karya dan pembelajaran
               terkait teknologi, termasuk pengenalan computational thinking
               dan pengembangan aplikasi.
             </p>
-            <div class="tag-list">
-              <span class="tag">Kelas Digital</span>
-              <span class="tag">Coding</span>
-              <span class="tag">Karya Siswa</span>
-            </div>
-          </article>
-        </div>
-
-        <p style="margin-top:24px">
-          <a
-            class="text-link"
-            href="https://www.youtube.com/@smpitalhudawonogiri397"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+<div class="tag-list">
+<span class="tag">Kelas Digital</span>
+<span class="tag">Coding</span>
+<span class="tag">Karya Siswa</span>
+</div>
+</article>
+</div>
+<p style="margin-top:24px">
+<a class="text-link" href="https://www.youtube.com/@smpitalhudawonogiri397" rel="noopener noreferrer" target="_blank">
             Lihat publikasi video sekolah ↗
           </a>
-        </p>
-      </div>
-    </section>
-
-    <!-- PRESTASI -->
-    <section class="section" id="prestasi">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Prestasi dan Karya</p>
-          <h2>Setiap pencapaian punya cerita.</h2>
-          <p>
+</p>
+</div>
+</section>
+<!-- PRESTASI -->
+<section class="section" id="prestasi">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Prestasi dan Karya</p>
+<h2>Setiap pencapaian punya cerita.</h2>
+<p>
             Bagian ini disiapkan untuk menampilkan prestasi dengan nama,
             kategori, tingkat lomba, tahun, dan sumber yang jelas.
           </p>
-        </div>
-
-        <div class="achievement-box">
-          <div>
-            <h3>Jelajahi publikasi prestasi sekolah</h3>
-            <p>
-              Situs sekolah memuat publikasi prestasi siswa, termasuk
-              prestasi tilawah dan tartil yang pernah diumumkan.
-              Untuk memastikan tahun, kategori, dan daftar terbaru,
-              periksa artikel sumber sebelum menambahkan detail lainnya.
+</div>
+<div aria-label="Kategori prestasi dan kegiatan pembelajaran" class="gallery-grid"><article class="gallery-item">
+<div class="gallery-caption">
+<h3>Prestasi Coding</h3>
+<p>Publikasi terkait coding dari akun Instagram sekolah.</p>
+<a class="button" href="https://www.instagram.com/smpitalhudawonogiri/p/DeNuK5RhNVf/" rel="noopener noreferrer" target="_blank">Lihat Publikasi ↗</a>
+</div>
+</article><article class="gallery-item">
+<div class="gallery-caption">
+<h3>Prestasi Akademik</h3>
+<p>Publikasi prestasi dari akun sekolah.</p>
+<a class="button" href="https://www.instagram.com/smpitalhudawonogiri/p/DebCoskh_aP/" rel="noopener noreferrer" target="_blank">Lihat Publikasi ↗</a>
+</div>
+</article><article class="gallery-item">
+<div class="gallery-caption">
+<h3>Prestasi Keagamaan</h3>
+<p>Publikasi prestasi keagamaan dari akun sekolah.</p>
+<a class="button" href="https://www.instagram.com/smpitalhudawonogiri/p/DebDB7Xvs5Y/" rel="noopener noreferrer" target="_blank">Lihat Publikasi ↗</a>
+</div>
+</article></div>
+<div class="achievement-box" style="margin-top: 24px;">
+<div>
+<h3>Jelajahi publikasi prestasi sekolah</h3>
+<p>
+              Publikasi resmi sekolah pernah mencatat prestasi tilawah dan tartil tingkat Kecamatan Wonogiri pada 2021. Contoh yang tercantum ialah Nazwa Iren (Juara 1 Tilawah Putri), Lutfi Rifa’i Yudistira (Juara 1 Tilawah Putra), dan Widya Nur Syahidah (Juara 1 Tartil Putri). Ini merupakan catatan historis, bukan daftar prestasi terbaru.
             </p>
-          </div>
-
-          <a
-            class="button"
-            href="https://smpitalhuda.sch.id/archive/category/profil"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Lihat Sumber ↗
+</div>
+<a class="button" href="https://smpitalhuda.sch.id/" rel="noopener noreferrer" target="_blank">
+            Verifikasi di Situs Resmi ↗
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERI -->
-    <section class="section" id="galeri">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Galeri dan Fasilitas</p>
-          <h2>Lihat sekolah melalui dokumentasi aslinya.</h2>
-          <p>
-            Foto-foto berikut berasal dari publikasi di situs resmi sekolah pada 2023. Foto merupakan dokumentasi yang dipublikasikan sekolah dan belum tentu menunjukkan kondisi sekolah saat ini.
+</div>
+</div>
+</section>
+<!-- GALERI -->
+<section class="section" id="galeri">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container">
+<div class="section-heading">
+<p class="eyebrow">Galeri dan Fasilitas</p>
+<h2>Lihat sekolah melalui dokumentasi aslinya.</h2>
+<p>
+Bagian ini mengarahkan pengunjung ke dokumentasi yang diterbitkan melalui kanal resmi sekolah. Foto belum ditampilkan langsung di halaman ini.
           </p>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="gallery-item">
-            <div class="gallery-caption">
-              <h3>Gedung dan Halaman Sekolah</h3>
-              <p>Foto dapat dilihat pada publikasi resmi sekolah.</p>
-              <a class="button" href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/" target="_blank" rel="noopener noreferrer">Lihat Foto ↗</a>
-            </div>
-          </article>
-          <article class="gallery-item">
-            <div class="gallery-caption">
-              <h3>Kegiatan dan Prestasi Siswa</h3>
-              <p>Telusuri dokumentasi dan berita yang diterbitkan sekolah.</p>
-              <a class="button" href="https://www.instagram.com/smpitalhudawonogiri/" target="_blank" rel="noopener noreferrer">Buka Instagram ↗</a>
-            </div>
-          </article>
-          <article class="gallery-item">
-            <div class="gallery-caption">
-              <h3>Kegiatan Sekolah Terbaru</h3>
-              <p>Foto dan kegiatan terbaru dapat tersedia di kanal resmi sekolah.</p>
-              <a class="button" href="https://www.youtube.com/@smpitalhudawonogiri397" target="_blank" rel="noopener noreferrer">Buka YouTube ↗</a>
-            </div>
-          </article>
-        </div>
-        <p class="gallery-note">Foto tidak ditanam langsung di website ini. Gunakan tautan pada tiap bagian untuk membuka dokumentasi asli di situs atau kanal resmi sekolah.</p>
-      </div>
-    </section>
-
-    <!-- KONTAK -->
-    <section class="contact" id="kontak">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">Hubungi Sekolah</p>
-          <h2>Kenali lebih dekat SMPIT Al Huda Wonogiri.</h2>
-          <p>
+</div>
+<div class="gallery-grid">
+<article class="gallery-item">
+<div class="gallery-photo-link-wrap"><a class="button button-outline gallery-photo-link" href="https://smpitalhuda.sch.id/" rel="noopener noreferrer" target="_blank">Lihat Foto di Situs Resmi ↗</a></div>
+<div class="gallery-caption">
+<h3>Gedung Sekolah</h3>
+<p>Foto asli gedung sekolah dan suasana halaman.</p>
+</div>
+</article>
+<article class="gallery-item">
+<div class="gallery-caption">
+<h3>Kegiatan Pembelajaran Islami</h3>
+<p>Dokumentasi kegiatan keislaman di luar kelas.</p>
+<a class="button" href="https://www.instagram.com/smpitalhudawonogiri/p/CkhnMQmpANV/?hl=en" rel="noopener noreferrer" target="_blank">Publikasi 1 ↗</a>
+<a class="button" href="https://www.instagram.com/smpitalhudawonogiri/p/DddbZXshvsL/?hl=en" rel="noopener noreferrer" target="_blank">Publikasi 2 ↗</a>
+</div>
+</article></div>
+<p class="gallery-note">Foto gedung dapat dilihat melalui situs resmi sekolah. Publikasi Instagram dibuka melalui tautan masing-masing.</p>
+</div>
+</section>
+<!-- KONTAK -->
+<section class="contact" id="kontak">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="container contact-grid">
+<div>
+<p class="eyebrow">Hubungi Sekolah</p>
+<h2>Kenali lebih dekat SMPIT Al Huda Wonogiri.</h2>
+<p>
             Untuk informasi resmi, gunakan kanal komunikasi dan media
             sosial sekolah.
           </p>
-        </div>
-
-        <div class="contact-details">
-          <p>
-            <strong>Alamat</strong>
+</div>
+<div class="contact-details">
+<p>
+<strong>Alamat</strong>
             Jalan Raya Wonogiri–Ngadirojo Km 3, Bulusulur,
             Kecamatan Wonogiri, Kabupaten Wonogiri.
-            <br>
-            <small>Alamat berdasarkan publikasi profil sekolah.</small>
-          </p>
-
-          <p>
-            <strong>Telepon</strong>
-            <a href="tel:0273321982">0273-321982</a>
-          </p>
-
-          <p>
-            <strong>Email</strong>
-            <a href="mailto:smpitalhuda@yahoo.co.id">
+            <br/>
+<small>Alamat berdasarkan publikasi profil sekolah.</small>
+</p>
+<p>
+<strong>Telepon</strong>
+<a href="tel:0273321982">0273-321982</a>
+</p>
+<p>
+<strong>Email</strong>
+<a href="mailto:smpitalhuda@yahoo.co.id">
               smpitalhuda@yahoo.co.id
             </a>
-          </p>
-
-          <p>
-            <strong>Instagram</strong>
-            <a
-              href="https://www.instagram.com/smpitalhudawonogiri/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+</p>
+<p>
+<strong>Instagram</strong>
+<a href="https://www.instagram.com/smpitalhudawonogiri/" rel="noopener noreferrer" target="_blank">
               @smpitalhudawonogiri ↗
             </a>
-          </p>
-
-          <p>
-            <strong>YouTube</strong>
-            <a
-              href="https://www.youtube.com/@smpitalhudawonogiri397"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+</p>
+<p>
+<strong>YouTube</strong>
+<a href="https://www.youtube.com/@smpitalhudawonogiri397" rel="noopener noreferrer" target="_blank">
               SMPIT ALHUDA WONOGIRI ↗
             </a>
-          </p>
-
-          <p>
-            <strong>Situs Resmi</strong>
-            <a
-              href="https://smpitalhuda.sch.id/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+</p>
+<p>
+<strong>Situs Resmi</strong>
+<a href="https://smpitalhuda.sch.id/" rel="noopener noreferrer" target="_blank">
               smpitalhuda.sch.id ↗
             </a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SUMBER INFORMASI -->
-    <section class="section" id="sumber">
-      <div class="back-home-wrap"><button class="back-home-button" type="button" data-home="true">← Kembali ke Beranda</button></div>
-      <div class="sources-content">
-        <p class="eyebrow">Sumber dan Dokumentasi</p>
-        <h2>Rujukan informasi sekolah.</h2>
-        <p>Informasi pada website ini dirangkum dari publikasi sekolah berikut. Tautan dibuka jika pengunjung ingin memeriksa sumber aslinya.</p>
-        <ul>
-          <li><a href="https://smpitalhuda.sch.id/" target="_blank" rel="noopener noreferrer">Situs resmi SMPIT Al Huda Wonogiri</a> — informasi umum dan publikasi sekolah.</li>
-          <li><a href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/" target="_blank" rel="noopener noreferrer">Profil sekolah</a> — profil dan program yang pernah dipublikasikan.</li>
-          <li><a href="https://smpitalhuda.sch.id/blog/meningkatkan-computational-thinking-dengan-cooding-block/" target="_blank" rel="noopener noreferrer">Artikel computational thinking dan coding blocks</a> — publikasi bertanggal 14 Juni 2022.</li>
-          <li><a href="https://smpitalhuda.sch.id/archive/category/profil" target="_blank" rel="noopener noreferrer">Arsip kategori profil</a> — publikasi profil dan prestasi sekolah.</li>
-          <li><a href="https://www.instagram.com/smpitalhudawonogiri/" target="_blank" rel="noopener noreferrer">Instagram resmi sekolah</a> — kanal publikasi foto dan kegiatan.</li>
-          <li><a href="https://www.youtube.com/@smpitalhudawonogiri397" target="_blank" rel="noopener noreferrer">YouTube resmi sekolah</a> — kanal publikasi video.</li>
-        </ul>
-        <p style="margin-top:24px">Foto tidak ditampilkan langsung di website ini; pengunjung dapat membukanya melalui tautan ke situs dan kanal resmi sekolah.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>AL-HUDA: RUANG TUMBUH</p>
-      <p>
-        Konsep website profil SMPIT Al Huda Wonogiri.
-        Informasi bersumber dari publikasi sekolah.
+</p>
+</div>
+</div>
+</section>
+<!-- SUMBER INFORMASI -->
+<section class="section" id="sumber">
+<div class="back-home-wrap"><button class="back-home-button" data-home="true" type="button">← Kembali ke Beranda</button></div>
+<div class="sources-content">
+<p class="eyebrow">Sumber dan Dokumentasi</p>
+<h2>Rujukan informasi sekolah.</h2>
+<p>Informasi pada website ini dirangkum dari publikasi sekolah berikut. Tautan dibuka jika pengunjung ingin memeriksa sumber aslinya.</p>
+<ul>
+<li><a href="https://smpitalhuda.sch.id/" rel="noopener noreferrer" target="_blank">Situs resmi SMPIT Al Huda Wonogiri</a> — informasi umum dan publikasi sekolah.</li>
+<li><a href="https://smpitalhuda.sch.id/smp-islam-terbaik-di-wonogiri/" rel="noopener noreferrer" target="_blank">Profil sekolah</a> — profil dan program yang pernah dipublikasikan.</li>
+<li><a href="https://smpitalhuda.sch.id/blog/meningkatkan-computational-thinking-dengan-cooding-block/" rel="noopener noreferrer" target="_blank">Artikel computational thinking dan coding blocks</a> — publikasi bertanggal 14 Juni 2022.</li>
+<li><a href="https://smpitalhuda.sch.id/archive/category/profil" rel="noopener noreferrer" target="_blank">Arsip kategori profil</a> — publikasi profil dan prestasi sekolah.</li>
+<li><a href="https://www.instagram.com/smpitalhudawonogiri/" rel="noopener noreferrer" target="_blank">Instagram resmi sekolah</a> — kanal publikasi foto dan kegiatan.</li>
+<li><a href="https://www.youtube.com/@smpitalhudawonogiri397" rel="noopener noreferrer" target="_blank">YouTube resmi sekolah</a> — kanal publikasi video.</li>
+</ul>
+<p style="margin-top:24px">Foto tidak ditampilkan langsung di website ini; pengunjung dapat membukanya melalui tautan ke situs dan kanal resmi sekolah.</p>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<p>AL-HUDA: RUANG TUMBUH</p>
+<p>
+        Website informasi independen, bukan situs resmi sekolah.
+        Informasi dirangkum dari publikasi yang dicantumkan pada bagian Sumber.
       </p>
-    </div>
-  </footer>
-
-  <script>
+</div>
+</footer>
+<script>
     "use strict";
 
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
-    const slides = Array.from(document.querySelectorAll("main > section"));
 
-    function showSlide(id) {
-      const target = slides.find((slide) => slide.id === id);
-      if (!target) return;
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+      menuToggle.textContent = "☰";
+    }
 
-      slides.forEach((slide) => {
-        const active = slide === target;
-        slide.classList.toggle("is-active", active);
-        slide.setAttribute("aria-hidden", String(!active));
+    function showSection(id, updateHash = true) {
+      const target = document.getElementById(id);
+      if (!target || !target.matches("main > section")) return;
+
+      document.querySelectorAll("main > section").forEach((section) => {
+        section.classList.toggle("is-active", section === target);
       });
+      document.querySelector(".footer")?.classList.toggle("is-active", id === "sumber");
 
-      if (window.location.hash !== "#" + id) {
-        history.pushState(null, "", "#" + id);
+      if (updateHash && window.location.hash !== `#${id}`) {
+        history.pushState(null, "", `#${id}`);
       }
-
-      document.querySelector(".footer").classList.toggle("is-active", id === "sumber");
       window.scrollTo({ top: 0, behavior: "auto" });
+      closeMenu();
     }
 
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         const id = link.getAttribute("href").slice(1);
-        if (!slides.some((slide) => slide.id === id)) return;
-        event.preventDefault();
-        showSlide(id);
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
-        menuToggle.textContent = "☰";
+        if (document.getElementById(id)?.matches("main > section")) {
+          event.preventDefault();
+          showSection(id);
+        }
+        closeMenu();
       });
     });
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
-      );
+      menuToggle.setAttribute("aria-label", isOpen ? "Tutup menu navigasi" : "Buka menu navigasi");
       menuToggle.textContent = isOpen ? "✕" : "☰";
     });
 
+    document.querySelectorAll('[data-home="true"]').forEach((button) => {
+      button.addEventListener("click", () => showSection("beranda"));
+    });
+
     window.addEventListener("popstate", () => {
-      const id = window.location.hash.slice(1);
-      showSlide(slides.some((slide) => slide.id === id) ? id : "beranda");
+      const id = window.location.hash.slice(1) || "beranda";
+      showSection(id, false);
     });
 
-    document.querySelectorAll("[data-home=\"true\"]").forEach((button) => {
-      button.addEventListener("click", () => showSlide("beranda"));
+    window.addEventListener("load", () => {
+      const id = window.location.hash.slice(1) || "beranda";
+      showSection(id, false);
     });
-
-    const initialSlide = window.location.hash.slice(1);
-    showSlide(slides.some((slide) => slide.id === initialSlide) ? initialSlide : "beranda");
   </script>
 </body>
 </html>
